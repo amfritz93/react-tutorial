@@ -2,9 +2,10 @@ import { useState } from "react";
 import Square from "./Square";
 
 export default function Board() {
+    const [xIsNext, setXIsNext] = useState(true);
     const [squares, setSquares] = useState(Array(9).fill(null));
 
-    function handleClick(i) {
+    const handleClick = (i) => {
         const nextSquares = squares.slice();
         nextSquares[i] = 'X';
         setSquares(nextSquares);
