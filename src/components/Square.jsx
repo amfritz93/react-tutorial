@@ -1,7 +1,10 @@
+import { useState } from "react";
+
 export default function Square({value}) {
+    const [value, setValue] = useState(null);
 
     const handleClick = () => {
-        alert('Square ' + value + ' clicked!');
+        setValue("X");
     }
 
     return <button className="square" onClick={handleClick}>{value}</button>;
