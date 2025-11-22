@@ -1,3 +1,8 @@
 export default function Square({value}) {
-    return <button className="square">{value}</button>;
+
+    const handleClick = () => {
+        alert('Square ' + value + ' clicked!');
+    }
+
+    return <button className="square" onClick={handleClick}>{value}</button>;
 }
