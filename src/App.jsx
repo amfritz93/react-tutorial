@@ -1,11 +1,10 @@
-import { useState } from 'react'
-import Board from './components/Board'
 import './App.css'
+import Game from './components/Game'
 
 function App() {
 
   return (
-    <Board></Board>
+    <Game />
   )
 }
 
