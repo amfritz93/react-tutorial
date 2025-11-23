@@ -15,7 +15,7 @@ A modern, interactive Tic-Tac-Toe game built with React, featuring a beautiful g
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/react-tutorial.git
+git clone https://github.com/amfritz93/react-tutorial.git
 
 # Navigate to project directory
 cd react-tutorial
@@ -51,6 +51,5 @@ This project is licensed under the MIT License.
 
 ## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter) - email@example.com
 
-Project Link: [https://github.com/yourusername/react-tutorial](https://github.com/yourusername/react-tutorial)
+Project Link: [https://github.com/amfritz93/react-tutorial](https://github.com/amfritz93/react-tutorial)
