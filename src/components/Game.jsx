@@ -17,7 +17,7 @@ export default function Game() {
         setCurrentMove(nextMove);
     }
 
-    const moves = history.map((squares, move) => {
+    const moves = history.map((_, move) => {
         let description;
         if (move > 0) {
             description = 'Go to move #' + move;
@@ -25,13 +25,13 @@ export default function Game() {
             description = 'Go to game start';
         }
         return (
-            <li key={move}>
+            <li key={move} className="rounded-2xl overflow-hidden">
                 <button
                     onClick={() => jumpTo(move)}
-                    className={`w-full text-left px-4 py-2 rounded-lg transition-all duration-200 ${
+                    className={`w-full text-left px-6 py-4 transition-all duration-200 font-medium cursor-pointer ${
                         move === currentMove
-                            ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
-                            : 'bg-slate-700 hover:bg-slate-600 text-slate-200'
+                            ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/30 dark:shadow-purple-500/50 scale-105 rounded-2xl'
+                            : 'bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-slate-600 hover:shadow-md hover:scale-102 hover:cursor-pointer rounded-2xl'
                     }`}
                 >
                     {description}
@@ -41,16 +41,20 @@ export default function Game() {
     });
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+    <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-3 gap-8 px-6 sm:px-8 lg:px-12 pb-8 overflow-hidden items-start">
       {/* Game Board - Takes up majority of space (2/3) */}
-      <div className="lg:col-span-2 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-slate-700/50">
+      <div className="md:col-span-2 flex justify-center h-full">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
 
       {/* Move History - Takes up less space (1/3) */}
-      <div className="lg:col-span-1 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-slate-700/50">
-        <h2 className="text-xl font-semibold mb-4 text-blue-300">Move History</h2>
-        <ol className="space-y-2">{moves}</ol>
+      <div className="md:col-span-1 flex flex-col h-full max-w-md md:max-w-none mx-auto md:mx-0 w-full px-4 md:px-0">
+        <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 dark:from-purple-400 dark:via-pink-400 dark:to-orange-400 bg-clip-text text-transparent">
+          Move History
+        </h2>
+        <div className="flex-1 overflow-y-auto pr-2 scrollbar-hide">
+          <ol className="space-y-3">{moves}</ol>
+        </div>
       </div>
     </div>
   );

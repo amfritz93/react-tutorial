@@ -1,17 +1,18 @@
 import './App.css'
+import { ThemeProvider } from './context/ThemeContext'
+import Header from './components/Header'
 import Game from './components/Game'
 
 function App() {
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white flex items-center justify-center p-8">
-      <div className="max-w-7xl w-full">
-        <h1 className="text-4xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-          Tic-Tac-Toe
-        </h1>
-        <Game />
+    <ThemeProvider>
+      <div className="fixed inset-0 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 text-gray-900 dark:text-white transition-colors overflow-hidden">
+        <div className="h-full flex flex-col gap-8">
+          <Header />
+          <Game />
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   )
 }
 
